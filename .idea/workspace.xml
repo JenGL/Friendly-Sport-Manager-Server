@@ -2,20 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f6af8b1d-cc95-4a54-bdb3-ac6c9f7c8a8e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/init_players.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/match.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/matches.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/players.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/private/auth.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/private/getMatchDetail.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/private/getMatches.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/private/getPlayers.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/player.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/private/getPlayerDetail.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/private/db.php" beforeDir="false" afterPath="$PROJECT_DIR$/private/db.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/private/login_f.php" beforeDir="false" afterPath="$PROJECT_DIR$/private/login_f.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/private/register_f.php" beforeDir="false" afterPath="$PROJECT_DIR$/private/register_f.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/register.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/match.php" beforeDir="false" afterPath="$PROJECT_DIR$/match.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/players.php" beforeDir="false" afterPath="$PROJECT_DIR$/players.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/private/getMatchDetail.php" beforeDir="false" afterPath="$PROJECT_DIR$/private/getMatchDetail.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,11 +31,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/players.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="10" lean-forward="true" selection-end-line="15" selection-end-column="13" />
+            <state relative-caret-position="306">
+              <caret line="18" column="42" lean-forward="true" selection-start-line="18" selection-start-column="42" selection-end-line="18" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -58,10 +50,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/init_players.sql">
+        <entry file="file://$PROJECT_DIR$/player.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-line="11" selection-end-column="149" />
+            <state relative-caret-position="85">
+              <caret line="5" column="48" selection-start-line="5" selection-start-column="48" selection-end-line="5" selection-end-column="48" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/private/getPlayerDetail.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="12" column="2" selection-start-line="12" selection-start-column="2" selection-end-line="12" selection-end-column="2" />
             </state>
           </provider>
         </entry>
@@ -87,8 +88,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/private/getMatches.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="29" lean-forward="true" selection-end-line="53" selection-end-column="1" />
+            <state relative-caret-position="724">
+              <caret line="53" column="1" selection-start-line="53" selection-start-column="1" selection-end-line="53" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -96,8 +97,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/match.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="68" column="13" lean-forward="true" selection-start-line="68" selection-start-column="13" selection-end-line="68" selection-end-column="13" />
+            <state relative-caret-position="153">
+              <caret line="9" selection-start-line="9" selection-end-line="9" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -111,20 +112,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/private/getMatchDetail.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="452">
-              <caret line="55" column="38" selection-start-line="24" selection-start-column="12" selection-end-line="55" selection-end-column="38" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/login.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="41" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
+            <state relative-caret-position="34">
+              <caret line="2" column="23" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -141,11 +133,15 @@
       <find>g</find>
       <find>t1_</find>
       <find>ISNULL</find>
+      <find>'.$id.'</find>
+      <find>23</find>
     </findStrings>
     <replaceStrings>
       <replace>f</replace>
       <replace>t2_</replace>
       <replace>IFNULL</replace>
+      <replace>23</replace>
+      <replace>'.$id.'</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -163,14 +159,16 @@
         <option value="$PROJECT_DIR$/login.php" />
         <option value="$PROJECT_DIR$/register.php" />
         <option value="$PROJECT_DIR$/private/db.php" />
-        <option value="$PROJECT_DIR$/players.php" />
         <option value="$PROJECT_DIR$/private/getPlayers.php" />
         <option value="$PROJECT_DIR$/init_players.sql" />
-        <option value="$PROJECT_DIR$/private/getMatches.php" />
         <option value="$PROJECT_DIR$/private/auth.php" />
-        <option value="$PROJECT_DIR$/match.php" />
         <option value="$PROJECT_DIR$/matches.php" />
+        <option value="$PROJECT_DIR$/player.php" />
+        <option value="$PROJECT_DIR$/private/getMatches.php" />
+        <option value="$PROJECT_DIR$/private/getPlayerDetail.php" />
+        <option value="$PROJECT_DIR$/match.php" />
         <option value="$PROJECT_DIR$/private/getMatchDetail.php" />
+        <option value="$PROJECT_DIR$/players.php" />
       </list>
     </option>
   </component>
@@ -242,16 +240,15 @@
       <option name="presentableId" value="Default" />
       <updated>1544023432489</updated>
       <workItem from="1544023435591" duration="9859000" />
-      <workItem from="1544269268211" duration="13351000" />
+      <workItem from="1544269268211" duration="17057000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23210000" />
+    <option name="totallyTimeSpent" value="26916000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18017058" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -319,20 +316,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/players.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="10" lean-forward="true" selection-end-line="15" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/private/getPlayers.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="51" selection-start-line="2" selection-start-column="51" selection-end-line="2" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/private/db.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-74">
@@ -354,24 +337,52 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/private/getMatches.php">
+    <entry file="file://$PROJECT_DIR$/private/getPlayers.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="29" lean-forward="true" selection-end-line="53" selection-end-column="1" />
+        <state relative-caret-position="34">
+          <caret line="2" column="51" selection-start-line="2" selection-start-column="51" selection-end-line="2" selection-end-column="51" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/match.php">
+    <entry file="file://$PROJECT_DIR$/private/getMatches.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="68" column="13" lean-forward="true" selection-start-line="68" selection-start-column="13" selection-end-line="68" selection-end-column="13" />
+        <state relative-caret-position="724">
+          <caret line="53" column="1" selection-start-line="53" selection-start-column="1" selection-end-line="53" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/private/getMatchDetail.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="452">
-          <caret line="55" column="38" selection-start-line="24" selection-start-column="12" selection-end-line="55" selection-end-column="38" />
+        <state relative-caret-position="34">
+          <caret line="2" column="23" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/player.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="48" selection-start-line="5" selection-start-column="48" selection-end-line="5" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/private/getPlayerDetail.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="12" column="2" selection-start-line="12" selection-start-column="2" selection-end-line="12" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/match.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" selection-start-line="9" selection-end-line="9" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/players.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="42" lean-forward="true" selection-start-line="18" selection-start-column="42" selection-end-line="18" selection-end-column="42" />
         </state>
       </provider>
     </entry>

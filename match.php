@@ -11,7 +11,6 @@ if(isset($_GET['id'])){
     $res = $db->query('SELECT Leagues.name FROM Matches LEFT JOIN Leagues ON (Matches.league = Leagues.id) WHERE Matches.id = ' . $_GET['id'])->fetch_assoc();
     if(isset($res)) {
         $league = $res['name'];
-        echo $league;
         if ($isAuthorized($token, $league, $db)) {
             echo $getMatchDetail($_GET['id'], $db);
         } else {

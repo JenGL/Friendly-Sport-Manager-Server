@@ -1,6 +1,6 @@
 <?php
-return function ($league, $db) {
-    $q = buildQuery($league);
+return function ($id, $db) {
+    $q = buildQuery($id);
     $res_matches_rows = $db->query($q);
     $arr = array();
     while ($row = $res_matches_rows->fetch_assoc()) {
