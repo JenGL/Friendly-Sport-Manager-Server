@@ -55,26 +55,10 @@ class DatabaseConnection {
     public function query($q) {
         $res = $this->conn->query($q);
         $this->update_transaction_status($res);
-        if($this->transaction_success){
-            echo "SUCCESS\n";
-        } else {
-            echo "FAIL\n";
-        }
         return  $res;
     }
 
-    public function add_account($name, $password) {
-        $res = $this->conn->query('INSERT INTO Account (username, password) VALUES ("'.$name.'","'.$password.'")');
-        $this->update_transaction_status($res);
-        return $this->conn->lastInsertId();
-    }
 
-
-    public function link_account_to_league($account_id, $league_id) {
-        $res = $this->conn->query('INSERT INTO Account (username, password) VALUES ("'.$account_id.'","'.$league_id.'")');
-        $this->update_transaction_status($res2);
-        return $res;
-    }
 
 
 

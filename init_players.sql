@@ -1,0 +1,12 @@
+INSERT INTO `my_amicidelcalcetto`.`Players` (`name`, `role`, `points`, `goal`, `autogoal`, `league`) VALUES ( 'Bargu',   'Attaccante', '0', '0', '0', '15');
+INSERT INTO `my_amicidelcalcetto`.`Players` (`name`, `role`, `points`, `goal`, `autogoal`, `league`) VALUES ( 'GL',      'Attaccante', '0', '0', '0', '15');
+INSERT INTO `my_amicidelcalcetto`.`Players` (`name`, `role`, `points`, `goal`, `autogoal`, `league`) VALUES ( 'Carra',   'Difensore', '0', '0', '0', '15');
+INSERT INTO `my_amicidelcalcetto`.`Players` (`name`, `role`, `points`, `goal`, `autogoal`, `league`) VALUES ( 'Mone',    'Difensore', '0', '0', '0', '15');
+INSERT INTO `my_amicidelcalcetto`.`Players` (`name`, `role`, `points`, `goal`, `autogoal`, `league`) VALUES ( 'Drago',   'Fanstasia', '0', '0', '0', '15');
+INSERT INTO `my_amicidelcalcetto`.`Players` (`name`, `role`, `points`, `goal`, `autogoal`, `league`) VALUES ( 'Fraca',   'Fanstasia', '0', '0', '0', '15');
+INSERT INTO `my_amicidelcalcetto`.`Players` (`name`, `role`, `points`, `goal`, `autogoal`, `league`) VALUES ( 'Bellu',   'Ala', '0', '0', '0', '15');
+INSERT INTO `my_amicidelcalcetto`.`Players` (`name`, `role`, `points`, `goal`, `autogoal`, `league`) VALUES ( 'Roby',    'Ala', '0', '0', '0', '15');
+INSERT INTO `my_amicidelcalcetto`.`Players` (`name`, `role`, `points`, `goal`, `autogoal`, `league`) VALUES ( 'Seve',    'Difensore', '0', '0', '0', '15');
+INSERT INTO `my_amicidelcalcetto`.`Players` (`name`, `role`, `points`, `goal`, `autogoal`, `league`) VALUES ( 'Salva',   'Ala', '0', '0', '0', '15');
+INSERT INTO `my_amicidelcalcetto`.`Players` (`name`, `role`, `points`, `goal`, `autogoal`, `league`) VALUES ( 'Rupi',    'Ala', '0', '0', '0', '15');
+INSERT INTO `my_amicidelcalcetto`.`Players` (`name`, `role`, `points`, `goal`, `autogoal`, `league`) VALUES ( 'Chiassa', 'Ala', '0', '0', '0', '15');

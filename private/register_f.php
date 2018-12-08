@@ -1,6 +1,6 @@
 <?php
 
-return function($username,$password,$league, $db){
+return function ($username, $password, $league, $db) {
     $login = include 'login_f.php';
     if (isset($username) && isset($password) && isset($league)) {
         $db->start_transaction();
@@ -12,11 +12,12 @@ return function($username,$password,$league, $db){
         $db->query('INSERT INTO Account(`username`,`password`) VALUES ("' . $username . '","' . $password . '")');
         $res_user = $db->query('SELECT UUID FROM Account WHERE username = "' . $username . '"')->fetch_assoc();
         $db->query('INSERT INTO Acc_to_Leagues(`account`,`league`) VALUES ("' . $res_user["UUID"] . '","' . $res_league['id'] . '")');
-        if($db->commit_transaction()) {
-            //LOGIN
-            return $login($username,$password,$league, $db);
+        if ($db->commit_transaction()) {
+            return $login($username, $password, $league, $db);
         } else {
-            return "Something Went Really Wrong";
+            http_response_code(500);
+            $arr = array('error' => 'Something Went Really Wrong');
+            return json_encode($arr);
         }
     }
 }

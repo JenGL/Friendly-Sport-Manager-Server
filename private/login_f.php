@@ -11,22 +11,29 @@ return function($username, $password, $league, $db){
                 $res_acc_to_league = $db->query('SELECT * FROM Acc_to_Leagues WHERE account = "' . $res_user["UUID"] . '" AND league = "' . $res_league["id"] . '"')->fetch_assoc();
                 if (isset($res_acc_to_league)) {
                     $token = bin2hex(openssl_random_pseudo_bytes(16));
-                    $expire = time() + (4 * 60 * 60);
-                    $db->query('INSERT INTO Tokens (`token`,`UUID`,`expires`) VALUES (' . $token . ',' . $res_user["UUID"] . ',' . $expire . ')');
+                    $expire = date('Y-m-d G:i:s',mktime(date("G") + 4, date("i"), date("s"), date("m")  , date("d"), date("Y")));
+                    $db->query('INSERT INTO Tokens (`token`,`UUID`,`expires`) VALUES ("' . $token . '",' . $res_user["UUID"] . ',"' . $expire . '")');
                     $arr = array('username' => $username, 'league' => $league, 'token' => $token, 'expires' => $expire);
                     $db->commit_transaction();
+                    http_response_code(200);
                     return json_encode($arr);
                 } else {
+                    http_response_code(403);
                     $db->rollback();
-                    return 'ERROR: not authorized to this league';
+                    $arr = array('error' => 'Not authorized to this league');
+                    return json_encode($arr);
                 }
             } else {
+                http_response_code(401);
                 $db->rollback();
-                return 'ERROR: wrong password';
+                $arr = array('error' => 'wrong username or password');
+                return json_encode($arr);
             }
         } else {
+            http_response_code(401);
             $db->rollback();
-            return 'ERROR: user or league not valid';
+            $arr = array('error' => 'User or League not valid');
+            return  json_encode($arr);
         }
     }
 }

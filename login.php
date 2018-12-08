@@ -6,7 +6,7 @@ $login = include './private/login_f.php';
 $username = $_POST['username'];
 $password = $_POST['password'];
 $league = $_POST['league'];
-
+header("Content-Type: application/json");
 echo $login($username, $password, $league, $db);
 $db->close();
 ?>
