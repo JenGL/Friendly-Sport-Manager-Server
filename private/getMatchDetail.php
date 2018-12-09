@@ -9,16 +9,20 @@ return function ($id, $db) {
 function transformRes($row)
 {
     return array('id' => $row['id'], 'data' => $row['data'],
-        "team_1" => array(getPlayerObj($row, 't1_p1'),getPlayerObj($row,'t1_p2'),getPlayerObj($row,'t1_p3'),getPlayerObj($row,'t1_p4'),getPlayerObj($row,'t1_p5')),
-        "team_2" => array(getPlayerObj($row,'t2_p1'),getPlayerObj($row,'t2_p2'),getPlayerObj($row,'t2_p3'),getPlayerObj($row,'t2_p4'),getPlayerObj($row,'t2_p5')));
+        "team_1" => array(getPlayerObj($row, 't1_p1'), getPlayerObj($row, 't1_p2'), getPlayerObj($row, 't1_p3'), getPlayerObj($row, 't1_p4'), getPlayerObj($row, 't1_p5')),
+        "team_2" => array(getPlayerObj($row, 't2_p1'), getPlayerObj($row, 't2_p2'), getPlayerObj($row, 't2_p3'), getPlayerObj($row, 't2_p4'), getPlayerObj($row, 't2_p5')));
 }
 
-function getPlayerObj($row, $p){
-    return array("name" => $row[$p.'_name'],"goal" => $row[$p.'_goal'],"autogoal" => $row[$p.'_autogoal']);
+function getPlayerObj($row, $p)
+{
+    return array("id" => $row[$p . "_id"], "name" => $row[$p . '_name'], "goal" => $row[$p . '_goal'], "autogoal" => $row[$p . '_autogoal']);
 }
 
-function buildQuery($id) {
+function buildQuery($id)
+{
     return 'SELECT Matches.id, Matches.data, 
+            a1.id t1_p1_id, a2.id t1_p2_id, a3.id t1_p3_id, a4.id t1_p4_id, a5.id t1_p5_id,
+            b1.id t2_p1_id, b2.id t2_p2_id, b3.id t2_p3_id, b4.id t2_p4_id, b5.id t2_p5_id,
             a1.name t1_p1_name, a2.name t1_p2_name, a3.name t1_p3_name, a4.name t1_p4_name, a5.name t1_p5_name,
             b1.name t2_p1_name, b2.name t2_p2_name, b3.name t2_p3_name, b4.name t2_p4_name, b5.name t2_p5_name,
             IFNULL(g1.goal, 0) t1_p1_goal, IFNULL(g2.goal, 0) t1_p2_goal, IFNULL(g3.goal, 0) t1_p3_goal, IFNULL(g4.goal, 0) t1_p4_goal, IFNULL(g5.goal, 0) t1_p5_goal,
