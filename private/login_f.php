@@ -13,7 +13,7 @@ return function($username, $password, $league, $db){
                     $token = bin2hex(openssl_random_pseudo_bytes(16));
                     $expire = date('Y-m-d G:i:s',mktime(date("G") + 4, date("i"), date("s"), date("m")  , date("d"), date("Y")));
                     $db->query('INSERT INTO Tokens (`token`,`UUID`,`expires`) VALUES ("' . $token . '",' . $res_user["UUID"] . ',"' . $expire . '")');
-                    $arr = array('username' => $username, 'league' => $league, 'token' => $token, 'expires' => $expire);
+                    $arr = array('username' => $username, 'league' => $league, 'token' => $token, 'expires' => $expire, 'admin' => $res_acc_to_league['admin'] == "1" ? true : false);
                     $db->commit_transaction();
                     http_response_code(200);
                     return json_encode($arr);
