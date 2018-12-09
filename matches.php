@@ -1,5 +1,7 @@
 <?php
 include 'private/db.php';
+$handleOptions = include './private/options.php';
+$handleOptions();
 $db = new DatabaseConnection();
 
 $isAuthorized = include './private/auth.php';
@@ -7,18 +9,19 @@ $getMatches = include './private/getMatches.php';
 $token = substr($_SERVER['HTTP_AUTHORIZATION'], 7);
 
 header("Content-Type: application/json");
+header("Access-Control-Allow-Origin: *");
 if (isset($_GET['league'])) {
     if ($isAuthorized($token, $_GET['league'], $db)) {
         echo $getMatches($_GET['league'], $db);
     } else {
         http_response_code(403);
         $arr = array('error' => 'Not authorized');
-        return json_encode($arr);
+        echo json_encode($arr);
     }
 } else {
     http_response_code(400);
     $arr = array('error' => 'Bad Format');
-    return json_encode($arr);
+    echo json_encode($arr);
 }
 
 $db->close();

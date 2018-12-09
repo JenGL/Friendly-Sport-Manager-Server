@@ -11,14 +11,14 @@ return function ($league, $db) {
 };
 
 function transformRes($row){
-    return array('id' => $row['id'], 'data' => $row['Data'], "team_1" => array($row['t1_p1_name'], $row['t1_p2_name'], $row['t1_p3_name'], $row['t1_p4_name'], $row['t1_p5_name']),
+    return array('id' => $row['id'], 'data' => $row['data'], "team_1" => array($row['t1_p1_name'], $row['t1_p2_name'], $row['t1_p3_name'], $row['t1_p4_name'], $row['t1_p5_name']),
         "team_2" => array($row['t2_p1_name'], $row['t2_p2_name'], $row['t2_p3_name'], $row['t2_p4_name'], $row['t2_p5_name']),
         "team_1_score" => $row['t1_score'], "team_2_score" => $row['t2_score']);
 }
 
 function buildQuery($league)
 {
-    return 'SELECT Matches.id, Matches.Data, 
+    return 'SELECT Matches.id, Matches.data, 
             a1.name t1_p1_name, a2.name t1_p2_name, a3.name t1_p3_name, a4.name t1_p4_name, a5.name t1_p5_name,
             b1.name t2_p1_name, b2.name t2_p2_name, b3.name t2_p3_name, b4.name t2_p4_name, b5.name t2_p5_name,
             ifnull(g1.goal,0) + ifnull(g2.goal,0) + ifnull(g3.goal,0) + ifnull(g4.goal,0) + ifnull(g5.goal,0) +

@@ -1,18 +1,14 @@
 <?php
 return function ($id, $db) {
     $q = buildQuery($id);
-    $res_matches_rows = $db->query($q);
-    $arr = array();
-    while ($row = $res_matches_rows->fetch_assoc()) {
-        array_push($arr, transformRes($row));
-    }
+    $res_matches = $db->query($q)->fetch_assoc();
     http_response_code(200);
-    return json_encode($arr);
+    return json_encode(transformRes($res_matches));
 };
 
 function transformRes($row)
 {
-    return array('id' => $row['id'], 'data' => $row['Data'],
+    return array('id' => $row['id'], 'data' => $row['data'],
         "team_1" => array(getPlayerObj($row, 't1_p1'),getPlayerObj($row,'t1_p2'),getPlayerObj($row,'t1_p3'),getPlayerObj($row,'t1_p4'),getPlayerObj($row,'t1_p5')),
         "team_2" => array(getPlayerObj($row,'t2_p1'),getPlayerObj($row,'t2_p2'),getPlayerObj($row,'t2_p3'),getPlayerObj($row,'t2_p4'),getPlayerObj($row,'t2_p5')));
 }
@@ -22,7 +18,7 @@ function getPlayerObj($row, $p){
 }
 
 function buildQuery($id) {
-    return 'SELECT Matches.id, Matches.Data, 
+    return 'SELECT Matches.id, Matches.data, 
             a1.name t1_p1_name, a2.name t1_p2_name, a3.name t1_p3_name, a4.name t1_p4_name, a5.name t1_p5_name,
             b1.name t2_p1_name, b2.name t2_p2_name, b3.name t2_p3_name, b4.name t2_p4_name, b5.name t2_p5_name,
             IFNULL(g1.goal, 0) t1_p1_goal, IFNULL(g2.goal, 0) t1_p2_goal, IFNULL(g3.goal, 0) t1_p3_goal, IFNULL(g4.goal, 0) t1_p4_goal, IFNULL(g5.goal, 0) t1_p5_goal,

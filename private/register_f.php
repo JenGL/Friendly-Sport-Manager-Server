@@ -16,9 +16,13 @@ return function ($username, $password, $league, $db) {
             return $login($username, $password, $league, $db);
         } else {
             http_response_code(500);
-            $arr = array('error' => 'Something Went Really Wrong');
+            $arr = array('error' => 'Something Went Really Wrong', 'data' => $username.' - '.$password.' - '.$league);
             return json_encode($arr);
         }
+    } else {
+        http_response_code(400);
+        $arr = array('error' => 'Bad Format');
+        return json_encode($arr);
     }
 }
 ?>

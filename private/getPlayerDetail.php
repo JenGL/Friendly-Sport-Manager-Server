@@ -1,24 +1,20 @@
 <?php
 return function ($id, $db) {
     $base_info = $db->query('SELECT * FROM Players WHERE id = '.$id)->fetch_assoc();
-
+    unset($base_info['UUID']);
     $q = buildQuery($id);
     $res_matches_rows = $db->query($q);
-    $arr = array();
+    $base_info['matches'] = array();
     while ($row = $res_matches_rows->fetch_assoc()) {
-        array_push($arr, $row);
+        array_push($base_info['matches'], $row);
     }
     http_response_code(200);
-    return json_encode($arr);
+    return json_encode($base_info);
 };
-
-function getPlayerObj($row, $p){
-    return array("name" => $row[$p.'_name'],"goal" => $row[$p.'_goal'],"autogoal" => $row[$p.'_autogoal']);
-}
 
 function buildQuery($id)
 {
-    return 'SELECT Matches.id, Matches.Data,
+    return 'SELECT Matches.id, Matches.data,
             CASE 
             WHEN g1.player='.$id.' THEN IFNULL(g1.goal, 0)
             WHEN g2.player='.$id.' THEN IFNULL(g2.goal, 0)

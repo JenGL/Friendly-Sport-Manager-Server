@@ -33,6 +33,13 @@ class DatabaseConnection {
         }
     }
 
+    private function update_transaction_status($res)
+    {
+        if ($this->transaction_started) {
+            $this->transaction_success = $res && $this->transaction_started;
+        }
+    }
+
     public function commit_transaction() {
         if ($this->transaction_started) {
             $this->transaction_started = false;
@@ -107,12 +114,7 @@ class DatabaseConnection {
         return $this->select_goals_sql($p_id, $match);
     }
 
-    private function update_transaction_status($res)
-    {
-        if ($this->transaction_started) {
-            $this->transaction_success = $res && $this->transaction_started;
-        }
-    }
+
 
     public function select_player($name){
         return $this->conn->query('SELECT * FROM Players WHERE nome = "'.$name.'"');
