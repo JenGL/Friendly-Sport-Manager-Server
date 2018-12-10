@@ -4,12 +4,17 @@ include 'private/common_to_all.php';
 
 $db = new DatabaseConnection();
 $isAuthorized = include './private/auth.php';
-$getPlayers = include './private/getPlayers.php';
-$token = substr ($_SERVER['HTTP_AUTHORIZATION'] , 7);
+$addMatch = include './private/addmatch.php';
 
-if(isset($_GET['league'])){
-    if($isAuthorized($token, $_GET['league'], $db)){
-        echo $getPlayers($_GET['league'], $db);
+$team1 = json_decode($_POST['team1']);
+$team2 = json_decode($_POST['team2']);
+$data = $_POST['data'];
+$league = $_POST['league'];
+$token = substr($_SERVER['HTTP_AUTHORIZATION'], 7);
+
+if (isset($league)) {
+    if ($isAuthorized($token, $league, $db, true)) {
+        echo $addMatch($team1, $team2, $league, $data, $db);
     } else {
         http_response_code(403);
         $arr = array('error' => 'Not authorized');

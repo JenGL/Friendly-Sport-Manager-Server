@@ -1,15 +1,12 @@
 <?php
 include 'private/db.php';
-$handleOptions = include './private/options.php';
-$handleOptions();
-$db = new DatabaseConnection();
+include 'private/common_to_all.php';
 
+$db = new DatabaseConnection();
 $isAuthorized = include './private/auth.php';
 $getMatchDetail = include './private/getMatchDetail.php';
 $token = substr($_SERVER['HTTP_AUTHORIZATION'], 7);
 
-header("Content-Type: application/json");
-header("Access-Control-Allow-Origin: *");
 if(isset($_GET['id'])){
     $res = $db->query('SELECT Leagues.name FROM Matches LEFT JOIN Leagues ON (Matches.league = Leagues.id) WHERE Matches.id = ' . $_GET['id'])->fetch_assoc();
     if(isset($res)) {
