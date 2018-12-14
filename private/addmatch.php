@@ -9,11 +9,6 @@ return function ($team1, $team2, $league, $data, $db) {
 
         $league_id = $db->query('SELECT id FROM Leagues WHERE name = "' . $league . '"')->fetch_assoc()['id'];
 
-
-        $team1_id = addTeam($team1, $league_id, $db);
-        $team2_id = addTeam($team2, $league_id, $db);
-
-        $match_id = addMatch($team1_id, $team2_id, $data, $league_id, $db);
         $team1_score = 0;
         $team2_score = 0;
 
@@ -21,6 +16,13 @@ return function ($team1, $team2, $league, $data, $db) {
             $team1_score += $team1[$i]->goal + $team2[$i]->autogoal;
             $team2_score += $team2[$i]->goal + $team1[$i]->autogoal;
         }
+
+
+        $team1_id = addTeam($team1, $league_id, $team1_score > $team2_score, $db);
+        $team2_id = addTeam($team2, $league_id, $team2_score > $team1_score, $db);
+
+        $match_id = addMatch($team1_id, $team2_id, $data, $league_id, $db);
+
 
         for ($i = 0; $i < 5; $i++) {
             addGoalForPlayer($match_id, $team1[$i], $team1_score - $team2_score, $db);
@@ -47,7 +49,7 @@ function cmp($a, $b)
     return $a->id - $b->id;
 }
 
-function addTeam($team, $league, $db)
+function addTeam($team, $league, $win, $db)
 {
     $condition = 'player1 = ' . $team[0]->id . ' AND player2 = ' . $team[1]->id . ' AND player3 = ' . $team[2]->id . ' AND player4 = ' . $team[3]->id . ' AND player5 = ' . $team[4]->id . ' AND league = ' . $league;
     $query = 'INSERT INTO Teams (player1, player2, player3, player4, player5, league) 
@@ -55,7 +57,10 @@ function addTeam($team, $league, $db)
               WHERE NOT EXISTS ( SELECT id FROM Teams WHERE ' . $condition . ') LIMIT 1';
     $db->query($query);
 
-    return $db->query('SELECT id FROM Teams WHERE '.$condition)->fetch_assoc()['id'];
+    $win = $win ? 1 : 0;
+    $db->query('UPDATE Teams SET played = played + 1, win = win + ' . $win . ' WHERE ' . $condition);
+
+    return $db->query('SELECT id FROM Teams WHERE ' . $condition)->fetch_assoc()['id'];
 }
 
 function addMatch($team1_id, $team2_id, $data, $league, $db)
