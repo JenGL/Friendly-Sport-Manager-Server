@@ -5,4 +5,3 @@ return [
     'password' => '',
     'db' => 'my_amicidelcalcetto'
 ];
-?>

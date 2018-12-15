@@ -1,6 +1,7 @@
 <?php
 
 return function ($team1, $team2, $league, $data, $db) {
+    $createError = include './errors.php';
     if (isset($team1) && isset($team2) && isset($league) && isset($data)) {
         usort($team1, "cmp");
         usort($team2, "cmp");
@@ -17,12 +18,9 @@ return function ($team1, $team2, $league, $data, $db) {
             $team2_score += $team2[$i]->goal + $team1[$i]->autogoal;
         }
 
-
         $team1_id = addTeam($team1, $league_id, $team1_score > $team2_score, $db);
         $team2_id = addTeam($team2, $league_id, $team2_score > $team1_score, $db);
-
         $match_id = addMatch($team1_id, $team2_id, $data, $league_id, $db);
-
 
         for ($i = 0; $i < 5; $i++) {
             addGoalForPlayer($match_id, $team1[$i], $team1_score - $team2_score, $db);
@@ -33,14 +31,10 @@ return function ($team1, $team2, $league, $data, $db) {
             http_response_code(201);
             return "";
         } else {
-            http_response_code(500);
-            $arr = array('error' => 'Something Went Really Wrong');
-            return json_encode($arr);
+            return $createError(500);
         }
     } else {
-        http_response_code(400);
-        $arr = array('error' => 'Bad Format');
-        return json_encode($arr);
+        return $createError(400);
     }
 };
 

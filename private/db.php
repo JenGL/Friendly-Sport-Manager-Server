@@ -1,6 +1,5 @@
 <?php
 
-
 class DatabaseConnection {
     public $conn;
     public $transaction_started = false;

@@ -9,4 +9,3 @@ $password = $_POST['password'];
 $league = $_POST['league'];
 echo $login($username, $password, $league, $db);
 $db->close();
-?>

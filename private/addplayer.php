@@ -1,6 +1,7 @@
 <?php
 
 return function ($name, $account, $role, $league, $db) {
+    $createError = include './errors.php';
     if (isset($name) && isset($league)) {
         $UUID = null;
         if (isset($account)) {
@@ -25,13 +26,9 @@ return function ($name, $account, $role, $league, $db) {
             http_response_code(201);
             return;
         } else {
-            http_response_code(500);
-            $arr = array('error' => 'Something Went Really Wrong');
-            return json_encode($arr);
+            return $createError(500);
         }
     } else {
-        http_response_code(400);
-        $arr = array('error' => 'Bad Format');
-        return json_encode($arr);
+        return $createError(400);
     }
 };

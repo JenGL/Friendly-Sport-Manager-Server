@@ -11,4 +11,3 @@ $league = $_POST['league'];
 
 echo $register($username, $password, $league, $db);
 $db->close();
-?>

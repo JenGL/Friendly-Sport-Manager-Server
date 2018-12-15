@@ -1,6 +1,7 @@
 <?php
 
 return function($username, $password, $league, $db){
+    $createError = include './errors.php';
     if (isset($username) && isset($password) && isset($league)) {
         $res_user = $db->query('SELECT UUID, password FROM Account WHERE username = "' . $username . '"')->fetch_assoc();
         $res_league = $db->query('SELECT id FROM Leagues WHERE `name` = "' . $league . '"')->fetch_assoc();
@@ -17,25 +18,16 @@ return function($username, $password, $league, $db){
                         http_response_code(200);
                         return json_encode($arr);
                     } else {
-                        http_response_code(500);
-                        $arr = array('error' => 'Wrong Username or Password');
-                        return json_encode($arr);
+                        return  $createError(500);
                     }
                 } else {
-                    http_response_code(403);
-                    $arr = array('error' => 'Not authorized to this league');
-                    return json_encode($arr);
+                    return  $createError(403);
                 }
             } else {
-                http_response_code(401);
-                $arr = array('error' => 'Wrong Username or Password');
-                return json_encode($arr);
+                return  $createError(401);
             }
         } else {
-            http_response_code(401);
-            $arr = array('error' => 'User or League not valid');
-            return  json_encode($arr);
+            return  $createError(401);
         }
     }
-}
-?>
+};

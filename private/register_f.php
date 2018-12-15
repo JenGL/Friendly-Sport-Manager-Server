@@ -1,6 +1,7 @@
 <?php
 
 return function ($username, $password, $league, $db) {
+    $createError = include './errors.php';
     $login = include 'login_f.php';
     if (isset($username) && isset($password) && isset($league)) {
         $db->start_transaction();
@@ -15,14 +16,9 @@ return function ($username, $password, $league, $db) {
         if ($db->commit_transaction()) {
             return $login($username, $password, $league, $db);
         } else {
-            http_response_code(500);
-            $arr = array('error' => 'Something Went Really Wrong', 'data' => $username.' - '.$password.' - '.$league);
-            return json_encode($arr);
+            return $createError(500);
         }
     } else {
-        http_response_code(400);
-        $arr = array('error' => 'Bad Format');
-        return json_encode($arr);
+        return $createError(400);
     }
-}
-?>
+};
