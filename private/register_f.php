@@ -14,7 +14,7 @@ return function ($username, $password, $league, $db) {
         $res_user = $db->query('SELECT UUID FROM Account WHERE username = "' . $username . '"')->fetch_assoc();
         $db->query('INSERT INTO Acc_to_Leagues(`account`,`league`) VALUES ("' . $res_user["UUID"] . '","' . $res_league['id'] . '")');
         if ($db->commit_transaction()) {
-            return $login($username, $password, $league, $db);
+            return $login($username, $password, $db);
         } else {
             return $createError(500);
         }
